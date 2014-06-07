@@ -3,7 +3,7 @@
 Name: Sweet Tweet Button
 Author: Richard Barratt
 Description: Adds advanced Twitter sweetness to Thesis 2!
-Version: 1.2
+Version: 1.1
 Class: dna_sweet_tweet
 License: MIT
 
@@ -200,22 +200,22 @@ class dna_sweet_tweet extends thesis_box {
     global $thesis;
 
     return array (
-    'title' => __('Sweet Tweet', 'dna_sweet_tweet'),
+    'title' => __('Sweet Tweet', $this->_class),
     'fields' => array (
       
       'tweet_override' => array(
         'type' => 'textarea',
         'rows' => 3,
-        'label' => __('Tweet Text', 'dna_sweet_tweet'),
-        'description' => __('Enter your Tweet text here - this will override the default text of this post/page\'s title.', 'dna_sweet_tweet'),
-    		'tooltip' => __('Remember to account for additional texts such as url, username and your hashtags', 'dna_sweet_tweet'),
-    		'counter' => __('Character Countdown helper', 'dna_sweet_tweet'),
+        'label' => __('Tweet Text', $this->_class),
+        'description' => __('Enter your Tweet text here - this will override the default text of this post/page\'s title.', $this->_class),
+    		'tooltip' => __('Remember to account for additional texts such as url, username and your hashtags', $this->_class),
+    		'counter' => __('Character Countdown helper', $this->_class),
         ),
 
       'hashtag' => array(
         'type' => 'text',
         'width' => 'medium',
-        'label' => __('HashTag', 'dna_sweet_tweet'),
+        'label' => __('HashTag', $this->_class),
         'description' => __('Seperate HashTags with commas <b style="color: black;">(Do not include the \'#\' Character!)</b>', $this->_class),
         'tooltip' => __('Don\'t forget your hashtags will go towards your 140 character limit', $this->_class),
       ),     
@@ -280,7 +280,7 @@ class dna_sweet_tweet extends thesis_box {
 		$width = strpos($count, 'horizontal') ? 107 : 56;
 		$height = strpos($count, 'vertical') ? 62 : 20;
 		$l = get_bloginfo('language');
-		$hashtag = "&amp;hashtags=" . ($this->post_meta['hashtag'] ? str_replace(' ', '', $this->post_meta['hashtag']) : '');
+		$hashtag = !empty($this->post_meta['hashtag']) ? "&amp;hashtags=" . str_replace(' ', '', $this->post_meta['hashtag']) : '';
 
 // 	$text = "&amp;text=" . (in_the_loop() || is_singular() ? esc_attr(strip_tags($post->post_title)) : get_option('blogname'));
 		
