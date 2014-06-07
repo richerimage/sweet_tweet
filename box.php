@@ -200,24 +200,24 @@ class dna_sweet_tweet extends thesis_box {
     global $thesis;
 
     return array (
-    'title' => __('Sweet Tweet', $this->_class),
+    'title' => __('Sweet Tweet', 'dna_sweet_tweet'),
     'fields' => array (
       
       'tweet_override' => array(
         'type' => 'textarea',
         'rows' => 3,
-        'label' => __('Tweet Text', $this->_class),
-        'description' => __('Enter your Tweet text here - this will override the default text of this post/page\'s title.', $this->_class),
-    		'tooltip' => __('Remember to account for additional texts such as url, username and your hashtags', $this->_class),
-    		'counter' => __('Character Countdown helper', $this->_class),
+        'label' => __('Tweet Text', 'dna_sweet_tweet'),
+        'description' => __('Enter your Tweet text here - this will override the default text of this post/page\'s title.', 'dna_sweet_tweet'),
+    		'tooltip' => __('Remember to account for additional texts such as url, username and your hashtags', 'dna_sweet_tweet'),
+    		'counter' => __('Character Countdown helper', 'dna_sweet_tweet'),
         ),
 
       'hashtag' => array(
         'type' => 'text',
         'width' => 'medium',
         'label' => __('HashTag', $this->_class),
-        'description' => __('Seperate HashTags with commas <b style="color: black;">(Do not include the \'#\' Character!)</b>', $this->_class),
-        'tooltip' => __('Don\'t forget your hashtags will go towards your 140 character limit', $this->_class),
+        'description' => __('Seperate HashTags with commas <b style="color: black;">(Do not include the \'#\' Character!)</b>', 'dna_sweet_tweet'),
+        'tooltip' => __('Don\'t forget your hashtags will go towards your 140 character limit', 'dna_sweet_tweet'),
       ),     
       
     ));
