@@ -3,7 +3,7 @@
 Name: Sweet Tweet Button
 Author: Richard Barratt
 Description: Adds advanced Twitter sweetness to Thesis 2!
-Version: 1.1
+Version: 1.2
 Class: dna_sweet_tweet
 License: MIT
 
@@ -215,9 +215,9 @@ class dna_sweet_tweet extends thesis_box {
       'hashtag' => array(
         'type' => 'text',
         'width' => 'medium',
-        'label' => __('HashTag', $this->_class),
-        'description' => __('Seperate HashTags with commas <b style="color: black;">(Do not include the \'#\' Character!)</b>', 'dna_sweet_tweet'),
-        'tooltip' => __('Don\'t forget your hashtags will go towards your 140 character limit', 'dna_sweet_tweet'),
+        'label' => __('HashTag', 'dna_sweet_tweet'),
+        'description' => __('Seperate HashTags with commas <b style="color: black;">(Do not include the \'#\' Character!)</b>', $this->_class),
+        'tooltip' => __('Don\'t forget your hashtags will go towards your 140 character limit', $this->_class),
       ),     
       
     ));
@@ -280,7 +280,7 @@ class dna_sweet_tweet extends thesis_box {
 		$width = strpos($count, 'horizontal') ? 107 : 56;
 		$height = strpos($count, 'vertical') ? 62 : 20;
 		$l = get_bloginfo('language');
-		$hashtag = !empty($this->post_meta['hashtag']) ? "&amp;hashtags=" . str_replace(' ', '', $this->post_meta['hashtag']) : '';
+		$hashtag = "&amp;hashtags=" . ($this->post_meta['hashtag'] ? str_replace(' ', '', $this->post_meta['hashtag']) : '');
 
 // 	$text = "&amp;text=" . (in_the_loop() || is_singular() ? esc_attr(strip_tags($post->post_title)) : get_option('blogname'));
 		
